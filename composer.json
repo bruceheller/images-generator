@@ -1,0 +1,21 @@
+{
+  "name": "djlemmings/images-generator",
+  "description": "Generate placeholder images",
+  "homepage": "https://github.com/djlemmings/ImagesGenerator",
+  "version": "1.0.0",
+  "license": "MIT",
+  "authors": [
+      {
+          "name": "Bruce Heller",
+          "email": "bheller@bheller.com",
+          "homepage": "http://www.bheller.com"
+      }
+  ],
+  "require": {
+      "php": ">=5.3.0",
+      "fzaninotto/faker": "~1.4"
+  },
+  "autoload": {
+      "psr-4": { "Lemmings\\ImagesGenerator\\": "src/" }
+  }
+}
