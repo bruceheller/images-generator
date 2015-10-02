@@ -2,7 +2,7 @@
   "name": "djlemmings/images-generator",
   "description": "Generate placeholder images",
   "homepage": "https://github.com/djlemmings/ImagesGenerator",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "authors": [
       {
