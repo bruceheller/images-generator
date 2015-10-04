@@ -1,6 +1,6 @@
 <?php
 
-namespace Lemmings\ImagesGenerator;
+namespace DJLemmings\ImagesGenerator;
 
 /**
  * Provider for the Faker generator
