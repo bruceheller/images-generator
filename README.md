@@ -34,7 +34,7 @@ The easiest way is to use composer:
 
 Or if you prefer by modifying your composer.json file, add this line to the "require" section:
 
-    "bheller/images-generator": "~1.0.0"
+    "bheller/images-generator": "~1.0"
 
 ## Usage
 
