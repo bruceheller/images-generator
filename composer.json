@@ -1,24 +1,24 @@
 {
-  "name": "DJLemmings/ImagesGenerator",
-  "description": "Generate placeholder images",
-  "homepage": "https://github.com/djlemmings/ImagesGenerator",
-  "version": "0.0.3",
-  "keywords": ["imagegenerator", "faker", "fixtures", "data"],
-  "license": "MIT",
-  "authors": [
-      {
-          "name": "Bruce Heller",
-          "email": "bheller@bheller.com",
-          "homepage": "http://www.bheller.com"
-      }
-  ],
-  "require": {
-      "php": ">=5.3.0",
-      "fzaninotto/faker": "~1.4"
-  },
-  "autoload": {
-      "psr-4": {
-          "DJLemmings\\ImagesGenerator\\": "src"    
-      }
-  }
+    "name": "bheller/ImagesGenerator",
+    "description": "Generate placeholder images",
+    "homepage": "https://github.com/bruceheller/ImagesGenerator",
+    "version": "1.0.0",
+    "keywords": ["imagegenerator", "faker", "fixtures", "data"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bruce Heller",
+            "email": "bheller@bheller.com",
+            "homepage": "http://www.bheller.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "fzaninotto/faker": "~1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "bheller\\ImagesGenerator\\": "src"    
+        }
+    }
 }
