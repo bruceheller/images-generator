@@ -21,7 +21,7 @@ class ImagesGeneratorProvider extends \Faker\Provider\Base
      * @param integer $height
      *            Height of the picture in pixels
      * @param string $format
-     *            Image format, jpg or png. Default as jpg
+     *            Image format, jpg or png. Default as png
      * @param bool $fullPath
      *            Return full pathfile if true
      * @param string $text
@@ -31,7 +31,7 @@ class ImagesGeneratorProvider extends \Faker\Provider\Base
      * @param string $textColor
      *            Text color in hexadecimal format, default to white
      */
-    public static function imageGenerator($dir = null, $width = 640, $height = 480, $format = 'jpg', $fullPath = true, $text = null, $backgroundColor = null, $textColor = null)
+    public static function imageGenerator($dir = null, $width = 640, $height = 480, $format = 'png', $fullPath = true, $text = null, $backgroundColor = null, $textColor = null)
     {
         $dir = is_null($dir) ? sys_get_temp_dir() : $dir; // GNU/Linux / OS X / Windows compatible
                                                           // Validate directory path
@@ -48,7 +48,11 @@ class ImagesGeneratorProvider extends \Faker\Provider\Base
         if (function_exists('imagecreate')) {
             $image = imagecreate($width, $height);
             if ($backgroundColor) {
-                $rgb = str_split(substr($backgroundColor, 1), 2);
+                if (substr($backgroundColor, 0, 1) == '#') {
+                    $rgb = str_split(substr($backgroundColor, 1), 2);
+                } else {
+                    $rgb = str_split($backgroundColor, 2);
+                }
                 imagecolorallocate($image, hexdec($rgb[0]), hexdec($rgb[1]), hexdec($rgb[2]));
             } else {
                 imagecolorallocate($image, 0, 0, 0);
@@ -60,7 +64,11 @@ class ImagesGeneratorProvider extends \Faker\Provider\Base
 
             if (! is_null($text)) {
                 if ($textColor) {
-                    $rgb = str_split(substr($textColor, 1), 2);
+                    if (substr($textColor, 0, 1) == '#') {
+                        $rgb = str_split(substr($textColor, 1), 2);
+                    } else {
+                        $rgb = str_split($textColor, 2);
+                    }
                     $text_color = imagecolorallocate($image, hexdec($rgb[0]), hexdec($rgb[1]), hexdec($rgb[2]));
                 } else {
                     $text_color = imagecolorallocate($image, 255, 255, 255);
@@ -76,16 +84,13 @@ class ImagesGeneratorProvider extends \Faker\Provider\Base
                 imagettftext($image, $fontSize, 0, ($width / 2) - (($textBoundingBox[2] - $textBoundingBox[0]) / 2), ($height / 2) + (($textBoundingBox[1] - $textBoundingBox[7]) / 2), $text_color, __DIR__ . '/font/Roboto-Regular.ttf', $text);
             }
 
-            switch ($format) {
+            switch (strtolower($format)) {
                 case 'jpg':
                 case 'jpeg':
-                case 'JPG':
-                case 'JPEG':
                 default:
                     $success = imagejpeg($image, $filepath);
                     break;
                 case 'png':
-                case 'PNG':
                     $success = imagepng($image, $filepath);
             }
             $success = imagedestroy($image);
