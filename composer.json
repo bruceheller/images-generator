@@ -1,9 +1,9 @@
 {
-    "name": "bheller/ImagesGenerator",
-    "description": "Generate placeholder images",
-    "homepage": "https://github.com/bruceheller/ImagesGenerator",
+    "name": "bheller/images-generator",
+    "description": "Generator of placeholder images for Faker",
+    "homepage": "https://github.com/bruceheller/images-generator",
     "version": "1.0.0",
-    "keywords": ["imagegenerator", "faker", "fixtures", "data"],
+    "keywords": ["images-generator", "imagesgenerator", "faker", "fixtures", "data"],
     "license": "MIT",
     "authors": [
         {
