@@ -2,6 +2,8 @@
 
 Generator of placeholder-type images using **GD** for **[fzaninotto/Faker](https://github.com/fzaninotto/Faker)**
 
+![Sample image](https://cloud.githubusercontent.com/assets/3966713/10469009/a205715e-7202-11e5-8603-cdcf2191c5e1.png)
+
 ## What is the goal of this project?
 
 [Faker](https://github.com/fzaninotto/Faker) is an amazing tool to quickly generate bunch of fake data that looks real. You can refer to its documentation to learn more about the powerful things it can do.
@@ -72,21 +74,29 @@ Description:
 ## Examples:
 
  - `$faker->imageGenerator(null, 640, 480, 'png', false, true, '#1f1f1f', '#ff2222')`
-Will generate a 640x480 dark grey png picture with the text '640x480' in red and return the filename.
+Will generate a 640x480 dark grey png picture with the text '640x480' in red and return the filename like this:
+
+![Sample image](https://cloud.githubusercontent.com/assets/3966713/10468673/9a8dfe70-7200-11e5-814d-b82c852f520d.png)
  - `$faker->imageGenerator('img', 640, 480, 'png', true, 'Faker', '#0018ff', '#ffd800')`
-Will generate a 640x480 blue png picture with the text 'Faker' in yellow inside an `img` directory of your project and return the full path such as `'img/f523f8bec6ed65fb1d63ae8d09850f9c.png'`.
+Will generate a 640x480 blue png picture with the text 'Faker' in yellow inside an `img` directory of your project and return the full path such as `'img/f523f8bec6ed65fb1d63ae8d09850f9c.png'` like this:
+
+![Sample image](https://cloud.githubusercontent.com/assets/3966713/10468752/12c05ce4-7201-11e5-8829-e58bb16e4262.png)
 
 More complex example using the power of [Faker](https://github.com/fzaninotto/Faker):
 
  - `$faker->imageGenerator('img', $faker->numberBetween(600, 800), $faker->numberBetween(400, 600), 'jpg', true, $faker->word, $faker->hexColor, $faker->hexColor)`
-Will return a jpeg of a random color picture with a width between 600 and 800 pixels, height between 400 and 600 pixels, with a random word written in a random color!
+Will return a jpeg of a random color picture with a width between 600 and 800 pixels, height between 400 and 600 pixels, with a random word written in a random color! This could generate pictures like theses:
+
+![Sample image](https://cloud.githubusercontent.com/assets/3966713/10468916/143a28ec-7202-11e5-8afd-95a6b80096ac.png)
 
 ## Seeding the generator
 
-The **images-generator** doesn't directly uses the seeding power of [Faker](https://github.com/fzaninotto/Faker). But you still can use it to generate the different parameters values. For example, this code will always output the same picture with the same text:
+The **images-generator** doesn't directly uses the seeding power of [Faker](https://github.com/fzaninotto/Faker). But you still can use it to generate the different parameters values. For example, this code will always output the same green picture with the same text (dolorum):
 
     $faker->seed(1234);
     $image = $faker->imageGenerator('img', $faker->numberBetween(600, 800), $faker->numberBetween(400, 600), 'jpg', true, $faker->word, $faker->hexColor, $faker->hexColor);
+
+![Sample image](https://cloud.githubusercontent.com/assets/3966713/10468926/34711e2c-7202-11e5-9583-cd125a2ec9bf.png)
 
 ## Future developments
 
