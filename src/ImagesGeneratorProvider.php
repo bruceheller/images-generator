@@ -14,27 +14,19 @@ class ImagesGeneratorProvider extends \Faker\Provider\Base
      *
      * @example '/path/to/dir/13b73edae8443990be1aa8f1a483bc27.jpg'
      *
-     * @param string $dir
-     *            Path of the generated file, if null will use the system temp dir
-     * @param integer $width
-     *            Width of the picture in pixels
-     * @param integer $height
-     *            Height of the picture in pixels
-     * @param string $format
-     *            Image format, jpg or png. Default as png
-     * @param bool $fullPath
-     *            Return full pathfile if true
-     * @param string $text
-     *            Text to generate on the picture, default no text, if true given will output width and height.
-     * @param string $backgroundColor
-     *            Background color in hexadecimal format (eg. #7f7f7f), default to black
-     * @param string $textColor
-     *            Text color in hexadecimal format, default to white
+     * @param string  $dir             Path of the generated file, if null will use the system temp dir
+     * @param integer $width           Width of the picture in pixels
+     * @param integer $height          Height of the picture in pixels
+     * @param string  $format          Image format, jpg or png. Default as png
+     * @param bool    $fullPath        Return full pathfile if true
+     * @param string  $text            Text to generate on the picture, default no text, if true given will output width and height.
+     * @param string  $backgroundColor Background color in hexadecimal format (eg. #7f7f7f), default to black
+     * @param string  $textColor       Text color in hexadecimal format, default to white
      */
     public static function imageGenerator($dir = null, $width = 640, $height = 480, $format = 'png', $fullPath = true, $text = null, $backgroundColor = null, $textColor = null)
     {
         $dir = is_null($dir) ? sys_get_temp_dir() : $dir; // GNU/Linux / OS X / Windows compatible
-                                                          // Validate directory path
+        // Validate directory path
         if (! is_dir($dir) || ! is_writable($dir)) {
             throw new \InvalidArgumentException(sprintf('Cannot write to directory "%s"', $dir));
         }
@@ -95,12 +87,16 @@ class ImagesGeneratorProvider extends \Faker\Provider\Base
             }
             $success = imagedestroy($image);
         } else {
+            // @codeCoverageIgnoreStart
             return new \RuntimeException('GD is not available on this PHP installation. Impossible to generate image.');
+            // @codeCoverageIgnoreEnd
         }
 
         if (! $success) {
+            // @codeCoverageIgnoreStart
             // could not save the file - fail silently.
             return false;
+            // @codeCoverageIgnoreEnd
         }
 
         return $fullPath ? $filepath : $filename;
