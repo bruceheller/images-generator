@@ -1,0 +1,8 @@
+before_script:
+  - composer install --prefer-dist &> /dev/null
+stages:
+  - test
+RunTests:
+  stage: test
+  script:
+    - php vendor/bin/phpunit --colors --coverage-text
