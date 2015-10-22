@@ -4,3 +4,6 @@ vendor
 .buildpath
 .project
 .settings/
+
+!var/.gitkeep
+var/
