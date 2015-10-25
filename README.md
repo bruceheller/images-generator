@@ -4,6 +4,8 @@ Generator of placeholder-type images using **GD** for **[fzaninotto/Faker](https
 
 ![Sample image](https://cloud.githubusercontent.com/assets/3966713/10469009/a205715e-7202-11e5-8603-cdcf2191c5e1.png)
 
+[![Build Status](https://travis-ci.org/bruceheller/images-generator.svg?branch=master)](https://travis-ci.org/bruceheller/images-generator)
+
 ## What is the goal of this project?
 
 [Faker](https://github.com/fzaninotto/Faker) is an amazing tool to quickly generate bunch of fake data that looks real. You can refer to its documentation to learn more about the powerful things it can do.
