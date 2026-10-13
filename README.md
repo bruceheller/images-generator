@@ -1,3 +1,5 @@
+># This project is about to be archived. I never took the right time to update and maintain this lib. If someone is willing to take the ownership and update it for the futur, I'm very open to it. I hope it helped a few of you. Best!
+
 # images-generator
 
 Generator of placeholder-type images using **GD** for **[fzaninotto/Faker](https://github.com/fzaninotto/Faker)**
